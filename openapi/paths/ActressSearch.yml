@@ -1,0 +1,114 @@
+get:
+  operationId: getActressSearch
+  parameters:
+    - name: api_id
+      in: query
+      required: true
+      description: API ID
+      schema:
+        type: string
+    - name: affiliate_id
+      in: query
+      required: true
+      description: アフィリエイトID
+      schema:
+        type: string
+    - name: initial
+      in: query
+      description: 頭文字（50音）
+      schema:
+        type: string
+    - name: actress_id
+      in: query
+      description: 女優ID
+      schema:
+        type: string
+    - name: keyword
+      in: query
+      description: キーワード
+      schema:
+        type: string
+    - name: gte_bust
+      in: query
+      description: バスト下限
+      schema:
+        type: integer
+    - name: lte_bust
+      in: query
+      description: バスト上限
+      schema:
+        type: integer
+    - name: gte_waist
+      in: query
+      description: ウエスト下限
+      schema:
+        type: integer
+    - name: lte_waist
+      in: query
+      description: ウエスト上限
+      schema:
+        type: integer
+    - name: gte_hip
+      in: query
+      description: ヒップ下限
+      schema:
+        type: integer
+    - name: lte_hip
+      in: query
+      description: ヒップ上限
+      schema:
+        type: integer
+    - name: gte_height
+      in: query
+      description: 身長下限
+      schema:
+        type: integer
+    - name: lte_height
+      in: query
+      description: 身長上限
+      schema:
+        type: integer
+    - name: gte_birthday
+      in: query
+      description: 生年月日下限
+      schema:
+        type: string
+    - name: lte_birthday
+      in: query
+      description: 生年月日上限
+      schema:
+        type: string
+    - name: hits
+      in: query
+      description: 取得件数
+      schema:
+        type: integer
+    - name: offset
+      in: query
+      description: 検索開始位置
+      schema:
+        type: integer
+    - name: sort
+      in: query
+      description: ソート順
+      schema:
+        type: string
+        enum: [name, -name, bust, -bust, waist, -waist, hip, -hip, height, -height, birthday, -birthday, id, -id]
+    - name: output
+      in: query
+      description: 出力形式
+      schema:
+        type: string
+        enum: [json, xml]
+    - name: callback
+      in: query
+      description: コールバック
+      schema:
+        type: string
+  responses:
+    200:
+      description: 女優情報検索結果
+      content:
+        application/json:
+          schema:
+            $ref: '../index.yml#/components/schemas/ActressSearchResponse'

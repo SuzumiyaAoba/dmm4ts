@@ -1,0 +1,18 @@
+description: ジャンル情報リスト
+type: array
+items:
+  description: ジャンル情報
+  type: object
+  properties:
+    genre_id:
+      description: ジャンルID
+      type: integer
+    name:
+      description: ジャンル名
+      type: string
+    ruby:
+      description: ジャンル名（読み仮名）
+      type: string
+    list_url:
+      description: リストページURL（アフィリエイトID付き）
+      type: string

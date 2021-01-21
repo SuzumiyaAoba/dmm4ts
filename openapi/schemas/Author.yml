@@ -1,0 +1,19 @@
+description: 作者情報
+type: object
+properties:
+  author_id:
+    description: 作者情報
+    type: integer
+  name:
+    description: 作者名
+    type: string
+  ruby:
+    description: 作者名（読み仮名）
+    type: string
+  author_name:
+    description: 作者別名
+    type: string
+  list_url:
+    description: リストページURL（アフィリエイトID付き）
+    type: string
+  

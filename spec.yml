@@ -1,0 +1,1377 @@
+openapi: 3.0.0
+info:
+  title: DMM.com API ver3
+  description: DMM Webサービスが提供するWeb APIの非公式Open API
+  license:
+    name: MIT License
+    url: 'https://opensource.org/licenses/MIT'
+  version: 3.0.0
+servers:
+  - url: 'https://api.dmm.com/affiliate/v3'
+    description: API ver 3.0
+paths:
+  /ItemList:
+    get:
+      operationId: getItemList
+      parameters:
+        - name: api_id
+          in: query
+          description: API ID
+          required: true
+          schema:
+            type: string
+        - name: affiliate_id
+          in: query
+          description: アフィリエイトID
+          required: true
+          schema:
+            type: string
+        - name: site
+          in: query
+          description: サイト
+          required: true
+          schema:
+            type: string
+            enum:
+              - DMM.com
+              - FANZA
+        - name: service
+          in: query
+          description: サービス
+          schema:
+            type: string
+        - name: floor
+          in: query
+          description: フロア
+          schema:
+            type: string
+        - name: hits
+          in: query
+          description: 取得件数
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: 検索開始位置
+          schema:
+            type: integer
+        - name: sort
+          in: query
+          description: ソート順
+          schema:
+            type: string
+            enum:
+              - rank
+              - price
+              - '-price'
+              - date
+              - review
+              - match
+        - name: keyword
+          in: query
+          description: キーワード
+          schema:
+            type: string
+        - name: cid
+          in: query
+          description: 商品ID
+          schema:
+            type: string
+        - name: article
+          in: query
+          description: 絞りこみ項目
+          schema:
+            type: string
+            enum:
+              - actress
+              - author
+              - genre
+              - series
+              - maker
+        - name: article_id
+          in: query
+          description: 絞り込みID
+          schema:
+            type: integer
+        - name: gte_date
+          in: query
+          description: 発売日絞り込み
+          schema:
+            type: string
+        - name: lte_date
+          in: query
+          description: 発売日絞り込み
+          schema:
+            type: string
+        - name: mono_stock
+          in: query
+          description: 在庫絞り込み
+          schema:
+            type: string
+            enum:
+              - stock
+              - reserve
+              - mono
+              - dmp
+        - name: output
+          in: query
+          description: 出力形式
+          schema:
+            type: string
+            enum:
+              - json
+              - xml
+        - name: callback
+          in: query
+          description: コールバック
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 商品の情報リストを取得する
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemListResponse'
+  /FloorList:
+    get:
+      operationId: getFloorList
+      parameters:
+        - name: api_id
+          in: query
+          description: API ID
+          required: true
+          schema:
+            type: string
+        - name: affiliate_id
+          in: query
+          description: アフィリエイトID
+          required: true
+          schema:
+            type: string
+        - name: output
+          in: query
+          description: 出力形式
+          schema:
+            type: string
+            enum:
+              - json
+              - xml
+        - name: callback
+          in: query
+          description: コールバック
+          schema:
+            type: string
+      responses:
+        '200':
+          description: フロア一覧
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FloorListResponse'
+  /ActressSearch:
+    get:
+      operationId: getActressSearch
+      parameters:
+        - name: api_id
+          in: query
+          required: true
+          description: API ID
+          schema:
+            type: string
+        - name: affiliate_id
+          in: query
+          required: true
+          description: アフィリエイトID
+          schema:
+            type: string
+        - name: initial
+          in: query
+          description: 頭文字（50音）
+          schema:
+            type: string
+        - name: actress_id
+          in: query
+          description: 女優ID
+          schema:
+            type: string
+        - name: keyword
+          in: query
+          description: キーワード
+          schema:
+            type: string
+        - name: gte_bust
+          in: query
+          description: バスト下限
+          schema:
+            type: integer
+        - name: lte_bust
+          in: query
+          description: バスト上限
+          schema:
+            type: integer
+        - name: gte_waist
+          in: query
+          description: ウエスト下限
+          schema:
+            type: integer
+        - name: lte_waist
+          in: query
+          description: ウエスト上限
+          schema:
+            type: integer
+        - name: gte_hip
+          in: query
+          description: ヒップ下限
+          schema:
+            type: integer
+        - name: lte_hip
+          in: query
+          description: ヒップ上限
+          schema:
+            type: integer
+        - name: gte_height
+          in: query
+          description: 身長下限
+          schema:
+            type: integer
+        - name: lte_height
+          in: query
+          description: 身長上限
+          schema:
+            type: integer
+        - name: gte_birthday
+          in: query
+          description: 生年月日下限
+          schema:
+            type: string
+        - name: lte_birthday
+          in: query
+          description: 生年月日上限
+          schema:
+            type: string
+        - name: hits
+          in: query
+          description: 取得件数
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: 検索開始位置
+          schema:
+            type: integer
+        - name: sort
+          in: query
+          description: ソート順
+          schema:
+            type: string
+            enum:
+              - name
+              - '-name'
+              - bust
+              - '-bust'
+              - waist
+              - '-waist'
+              - hip
+              - '-hip'
+              - height
+              - '-height'
+              - birthday
+              - '-birthday'
+              - id
+              - '-id'
+        - name: output
+          in: query
+          description: 出力形式
+          schema:
+            type: string
+            enum:
+              - json
+              - xml
+        - name: callback
+          in: query
+          description: コールバック
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 女優情報検索結果
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActressSearchResponse'
+  /GenreSearch:
+    get:
+      operationId: getGenreSearch
+      parameters:
+        - name: api_id
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: affiliate_id
+          in: query
+          required: true
+          description: アフィリエイトID
+          schema:
+            type: string
+        - name: floor_id
+          in: query
+          required: true
+          description: フロアID
+          schema:
+            type: string
+        - name: initial
+          in: query
+          description: 頭文字（50音）
+          schema:
+            type: string
+        - name: hits
+          in: query
+          description: 取得件数
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: 検索開始位置
+          schema:
+            type: integer
+        - name: output
+          in: query
+          description: 出力形式
+          schema:
+            type: string
+            enum:
+              - json
+              - xml
+        - name: callback
+          in: query
+          description: コールバック
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ジャンル検索結果
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenreSearchResponse'
+  /MakerSearch:
+    get:
+      operationId: getMakerSearch
+      parameters:
+        - name: api_id
+          in: query
+          required: true
+          description: API ID
+          schema:
+            type: string
+        - name: affiliate_id
+          in: query
+          required: true
+          description: アフィリエイトID
+          schema:
+            type: string
+        - name: floor_id
+          in: query
+          required: true
+          description: フロアID
+          schema:
+            type: integer
+        - name: initial
+          in: query
+          description: 頭文字（50音）
+          schema:
+            type: string
+        - name: hits
+          in: query
+          description: 取得件数
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: 検索開始位置
+          schema:
+            type: integer
+        - name: output
+          in: query
+          description: 出力形式
+          schema:
+            type: string
+            enum:
+              - json
+              - xml
+        - name: callback
+          in: query
+          description: コールバック
+          schema:
+            type: string
+      responses:
+        '200':
+          description: メーカー検索結果
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MakerSearchResponse'
+  /AuthorSearch:
+    get:
+      operationId: getAuthorSearch
+      parameters:
+        - name: api_id
+          in: query
+          required: true
+          description: API ID
+          schema:
+            type: string
+        - name: affiliate_id
+          in: query
+          required: true
+          description: アフィリエイトID
+          schema:
+            type: string
+        - name: floor_id
+          in: query
+          required: true
+          description: フロアID
+          schema:
+            type: integer
+        - name: initial
+          in: query
+          description: 頭文字（50音）
+          schema:
+            type: string
+        - name: hits
+          in: query
+          description: 取得件数
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: 取得件数
+          schema:
+            type: integer
+        - name: output
+          in: query
+          description: 出力形式
+          schema:
+            type: string
+            enum:
+              - json
+              - xml
+        - name: callback
+          in: query
+          description: コールバック
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 作者検索結果
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActressSearchResponse'
+components:
+  schemas:
+    ItemListRequest:
+      description: リクエスト
+      type: object
+      properties:
+        parameters:
+          type: object
+          description: リクエストパラメータ
+          properties:
+            api_id:
+              description: API ID
+              type: string
+            affiliate_id:
+              description: アフィリエイトID
+              type: string
+            site:
+              description: サイト
+              type: string
+              enum:
+                - DMM.com
+                - FANZA
+            service:
+              description: サービス
+              type: string
+            floor:
+              description: フロア
+              type: string
+            hits:
+              description: 取得件数
+              type: string
+            offset:
+              description: 検索開始位置
+              type: string
+            sort:
+              description: ソート順
+              type: string
+              enum:
+                - rank
+                - price
+                - '-price'
+                - date
+                - review
+                - match
+            keyword:
+              description: キーワード
+              type: string
+            cid:
+              description: 商品ID
+              type: string
+            article:
+              description: 絞り込み項目
+              type: string
+              enum:
+                - actress
+                - author
+                - genre
+                - series
+                - maker
+            article_id:
+              description: 絞り込みID
+              type: integer
+            gte_date:
+              description: 発売日絞り込み
+              type: string
+            lte_date:
+              description: 発売日絞り込み
+              type: string
+            mono_stock:
+              description: 在庫絞り込み
+              type: string
+            output:
+              description: 出力形式
+              type: string
+              enum:
+                - json
+                - xml
+            callback:
+              description: コールバック
+              type: string
+    ItemListResponse:
+      type: object
+      properties:
+        request:
+          $ref: '#/components/schemas/ItemListRequest'
+        result:
+          $ref: '#/components/schemas/ItemListResult'
+    ItemListResult:
+      description: 商品情報リスト検索結果
+      type: object
+      properties:
+        status:
+          description: ステータスコード
+          type: integer
+        result_count:
+          description: 取得件数
+          type: integer
+        total_count:
+          description: 全体件数
+          type: integer
+        first_position:
+          description: 検索開始位置
+          type: integer
+        items:
+          description: 商品情報
+          type: array
+          items:
+            $ref: '#/components/schemas/Item'
+    Item:
+      description: 商品情報
+      type: object
+      properties:
+        service_code:
+          description: サービスコード
+          type: string
+        service_name:
+          description: サービス名
+          type: string
+        floor_code:
+          description: フロアコード
+          type: string
+        floor_name:
+          description: フロア名
+          type: string
+        category_name:
+          description: カテゴリ名
+          type: string
+        content_id:
+          description: 商品ID
+          type: string
+        product_id:
+          description: 品番
+          type: string
+        title:
+          description: タイトル
+          type: string
+        volume:
+          description: 収録時間 or ページ数
+          type: string
+        number:
+          description: 巻数
+          type: integer
+        review:
+          description: レビュー
+          type: object
+          properties:
+            count:
+              description: レビュー数
+              type: integer
+            average:
+              description: レビュー平均点
+              type: string
+        URL:
+          description: 商品ページURL
+          type: string
+        affiliateURL:
+          description: アフィリエイトリンクURL
+          type: string
+        URLsp:
+          description: スマホ向け商品ページURL
+          type: string
+        affiliateURLSp:
+          description: スマホ向けアリフィエイトリンクURL
+          type: string
+        imageURL:
+          description: 画像URL
+          type: object
+          properties:
+            list:
+              description: リストページ用
+              type: string
+            small:
+              description: 末端用（小）
+              type: string
+            large:
+              description: 末端用（大）
+              type: string
+        tachiyomi:
+          description: 立ち読み
+          type: object
+          properties:
+            URL:
+              description: 立ち読みページURL
+              type: string
+            affiliateURL:
+              description: 立ち読みアフィリエイトリンクURL
+              type: string
+        sampleImageURL:
+          description: サンプル画像URL
+          type: object
+          properties:
+            sample_s:
+              description: サンプル（小）リスト
+              type: object
+              properties:
+                image:
+                  description: サンプル画像（小）
+                  type: array
+                  items:
+                    type: string
+        sampleMovieURL:
+          description: サンプル動画URL
+          type: object
+          properties:
+            size_476_306:
+              description: 476x306
+              type: string
+            size_560_360:
+              description: 560x360
+              type: string
+            size_644_414:
+              description: 644x414
+              type: string
+            size_720_480:
+              description: 720x480
+              type: string
+            pc_flag:
+              description: PC対応しているか
+              type: integer
+            sp_flag:
+              description: スマホ対応しているか
+              type: integer
+        prices:
+          description: 価格
+          type: object
+          properties:
+            price:
+              description: 金額
+              type: string
+            list_price:
+              description: 定価
+              type: string
+            deliveries:
+              description: 配信リスト
+              type: object
+              properties:
+                type:
+                  description: 配信タイプ
+                  type: string
+                price:
+                  description: 配信価格
+                  type: string
+        date:
+          description: 発売日、配信開始日、貸出開始日
+          type: string
+        iteminfo:
+          description: 商品詳細
+          type: object
+          properties:
+            genre:
+              description: ジャンル
+              type: object
+              properties:
+                name:
+                  description: ジャンル名
+                  type: string
+                id:
+                  description: ジャンルID
+                  type: integer
+            series:
+              description: シリーズ
+              type: object
+              properties:
+                name:
+                  description: シリーズ名
+                  type: string
+                id:
+                  description: シリーズID
+                  type: integer
+            maker:
+              description: メーカー
+              type: object
+              properties:
+                name:
+                  description: メーカー名
+                  type: string
+                id:
+                  description: メーカーID
+                  type: integer
+            actor:
+              description: 出演者（一般作品のみ）
+              type: object
+              properties:
+                name:
+                  description: 主演者名
+                  type: string
+                id:
+                  description: 出演者ID
+                  type: integer
+            actress:
+              description: 女優（アダルト作品のみ）
+              type: object
+              properties:
+                name:
+                  description: 女優名
+                  type: string
+                id:
+                  description: 女優ID
+                  type: integer
+            director:
+              description: 監督
+              type: object
+              properties:
+                name:
+                  description: 監督名
+                  type: string
+                id:
+                  description: 監督ID
+                  type: integer
+            author:
+              description: 作家、原作者、著者
+              type: object
+              properties:
+                name:
+                  description: 作家、原作者、著者名
+                  type: string
+                id:
+                  description: 作家、原作者、著者ID
+                  type: integer
+            label:
+              description: レーベル
+              type: object
+              properties:
+                name:
+                  description: レーベル名
+                  type: string
+                id:
+                  description: レーベルID
+                  type: integer
+        jancode:
+          description: JANコード
+          type: string
+        maker_product:
+          description: メーカー品番
+          type: string
+        isbn:
+          description: ISBN
+          type: string
+        stock:
+          description: 在庫状況
+          type: string
+        cdinfo:
+          description: CD情報
+          type: object
+          properties:
+            kind:
+              description: アルバム、シングル
+              type: string
+        bandaiinfo:
+          description: バンダイ情報
+          type: object
+          properties:
+            titlecode:
+              description: タイトルコード
+              type: string
+    FloorListRequest:
+      description: リクエスト
+      type: object
+      properties:
+        parameters:
+          type: object
+          description: リクエストパラメータ
+          properties:
+            api_id:
+              description: API ID
+              type: string
+            affiliate_id:
+              description: アフィリエイトID
+              type: string
+            floor_id:
+              description: フロアID
+              type: integer
+            initial:
+              description: 頭文字（50音）
+              type: string
+            hits:
+              description: 取得件数
+              type: integer
+            offset:
+              description: 検索開始位置
+              type: integer
+            output:
+              description: 出力形式
+              type: string
+            callback:
+              description: コールバック
+              type: string
+    FloorListResponse:
+      description: フロア一覧レスポンス
+      type: object
+      properties:
+        request:
+          $ref: '#/components/schemas/FloorListRequest'
+        result:
+          $ref: '#/components/schemas/FloorListResult'
+    FloorListResult:
+      description: フロア情報リスト検索結果
+      type: object
+      properties:
+        site:
+          description: サイト情報リスト
+          type: array
+          items:
+            $ref: '#/components/schemas/Site'
+    Site:
+      description: サイト情報
+      type: object
+      properties:
+        name:
+          description: サイト名
+          type: string
+        code:
+          description: サイトコード
+          type: string
+        service:
+          description: サービス情報
+          type: object
+          properties:
+            name:
+              description: サービス名
+              type: string
+            code:
+              description: サービスコード
+              type: string
+            floor:
+              description: フロア情報リスト
+              type: array
+              items:
+                description: フロア情報
+                type: object
+                properties:
+                  id:
+                    description: フロアID
+                    type: integer
+                  name:
+                    description: フロア名
+                    type: string
+                  code:
+                    description: フロアコード
+                    type: string
+    ActressSearchRequest:
+      description: リクエスト
+      type: object
+      properties:
+        parameters:
+          type: object
+          description: リクエストパラメータ
+          properties:
+            api_id:
+              description: API ID
+              type: string
+            affiliate_id:
+              description: アフィリエイトID
+              type: string
+            initial:
+              description: 頭文字（50音）
+              type: string
+            actress_id:
+              description: 女優ID
+              type: integer
+            keyword:
+              description: キーワード
+              type: string
+            gte_bust:
+              description: バスト下限
+              type: integer
+            lte_bust:
+              description: バスト上限
+              type: integer
+            gte_waist:
+              description: ウエスト下限
+              type: integer
+            lte_waist:
+              description: ウエスト上限
+              type: integer
+            gte_hip:
+              description: ヒップ下限
+              type: integer
+            lte_hip:
+              description: ヒップ上限
+              type: integer
+            gte_height:
+              description: 身長下限
+              type: integer
+            lte_height:
+              description: 身長上限
+              type: integer
+            gte_birthday:
+              description: 生年月日下限
+              type: string
+            lte_birthday:
+              description: 生年月日上限
+              type: string
+            hits:
+              description: 取得件数
+              type: integer
+            offset:
+              description: 検索開始位置
+              type: integer
+            sort:
+              description: ソート順
+              type: string
+              enum:
+                - name
+                - '-name'
+                - bust
+                - '-bust'
+                - waist
+                - '-waist'
+                - hip
+                - '-hip'
+                - height
+                - '-height'
+                - birthday
+                - '-birthday'
+                - id
+                - '-id'
+            output:
+              description: 出力形式
+              type: string
+              enum:
+                - json
+                - xml
+            callback:
+              description: コールバック
+              type: string
+    ActressSearchResponse:
+      type: object
+      properties:
+        request:
+          $ref: '#/components/schemas/ActressSearchRequest'
+        result:
+          $ref: '#/components/schemas/ActressSearchResult'
+    ActressSearchResult:
+      description: 女優情報検索結果
+      type: object
+      properties:
+        status:
+          description: ステータスコード
+          type: string
+        result_count:
+          description: 取得件数
+          type: integer
+        total_count:
+          description: 全体件数
+          type: integer
+        first_position:
+          description: 検索開始位置
+          type: integer
+        actress:
+          $ref: '#/components/schemas/Actress'
+    Actress:
+      description: 女優情報
+      type: object
+      properties:
+        id:
+          description: 女優ID
+          type: integer
+        name:
+          description: 女優名
+          type: string
+        ruby:
+          description: 女優名（読み仮名）
+          type: string
+        bust:
+          description: バスト
+          type: integer
+        cup:
+          description: カップ数
+          type: string
+        waist:
+          description: ウェスト
+          type: integer
+        hip:
+          description: ヒップ
+          type: integer
+        height:
+          description: 身長
+          type: integer
+        birthday:
+          description: 生年月日
+          type: string
+        blood_type:
+          description: 血液型
+          type: string
+        hobby:
+          description: 趣味
+          type: string
+        prefectures:
+          description: 出身地
+          type: string
+        imageURL:
+          description: 画像URL
+          type: object
+          properties:
+            small:
+              description: 画像（小）
+              type: string
+            large:
+              description: 画像（大）
+              type: string
+        listURL:
+          description: リストページURL（アフィリエイトID付き）
+          type: object
+          properties:
+            digital:
+              description: 動画
+              type: string
+            monthly_premium:
+              description: 月額動画 見放題chプレミアム
+              type: string
+            mono:
+              description: DVD通販
+              type: string
+            rental:
+              description: DVDレンタル
+              type: string
+    GenreSearchRequest:
+      description: リクエスト
+      type: object
+      properties:
+        parameters:
+          type: object
+          description: リクエストパラメータ
+          properties:
+            api_id:
+              description: API ID
+              type: string
+            affiliate_id:
+              description: アフィリエイトID
+              type: string
+            floor_id:
+              description: フロアID
+              type: integer
+            initial:
+              description: 頭文字（50音）
+              type: string
+            hits:
+              description: 取得件数
+              type: integer
+            offset:
+              description: 検索開始位置
+              type: integer
+            output:
+              description: 出力形式
+              type: string
+              enum:
+                - json
+                - xml
+            callback:
+              description: コールバック
+              type: string
+    GenreSearchResponse:
+      type: object
+      properties:
+        request:
+          $ref: '#/components/schemas/GenreSearchRequest'
+        result:
+          $ref: '#/components/schemas/GenreSearchResult'
+    GenreSearchResult:
+      description: ジャンル検索結果
+      type: object
+      properties:
+        status:
+          description: ステータスコード
+          type: string
+        result_count:
+          description: 取得件数
+          type: integer
+        total_count:
+          description: 全体件数
+          type: integer
+        first_position:
+          description: 検索開始位置
+          type: integer
+        site_name:
+          description: サイト名
+          type: string
+        site_code:
+          description: サイトコード
+          type: string
+        service_name:
+          description: サービス名
+          type: string
+        floor_id:
+          description: フロアID
+          type: integer
+        floor_name:
+          description: フロア名
+          type: string
+        floor_code:
+          description: フロアコード
+          type: string
+        genre:
+          $ref: '#/components/schemas/Genre'
+    Genre:
+      description: ジャンル情報リスト
+      type: array
+      items:
+        description: ジャンル情報
+        type: object
+        properties:
+          genre_id:
+            description: ジャンルID
+            type: integer
+          name:
+            description: ジャンル名
+            type: string
+          ruby:
+            description: ジャンル名（読み仮名）
+            type: string
+          list_url:
+            description: リストページURL（アフィリエイトID付き）
+            type: string
+    MakerSearchRequest:
+      description: リクエスト
+      type: object
+      properties:
+        parameters:
+          type: object
+          description: リクエストパラメータ
+          properties:
+            api_id:
+              description: API ID
+              type: string
+            affiliate_id:
+              description: アフィリエイトID
+              type: string
+            floor_id:
+              description: フロアID
+              type: integer
+            initial:
+              description: 頭文字（50音）
+              type: string
+            hits:
+              description: 取得件数
+              type: integer
+            offset:
+              description: 検索開始位置
+              type: integer
+            output:
+              description: 出力形式
+              type: string
+              enum:
+                - json
+                - xml
+            callback:
+              description: コールバック
+              type: string
+    MakerSearchResponse:
+      type: object
+      properties:
+        request:
+          $ref: '#/components/schemas/MakerSearchRequest'
+        result:
+          $ref: '#/components/schemas/MakerSearchResult'
+    MakerSearchResult:
+      description: メーカー検索結果
+      type: object
+      properties:
+        status:
+          description: ステータスコード
+          type: string
+        result_count:
+          description: 取得件数
+          type: integer
+        total_count:
+          description: 全体件数
+          type: integer
+        first_position:
+          description: 検索開始位置
+          type: integer
+        site_name:
+          description: サイト名
+          type: string
+        site_code:
+          description: サイトコード
+          type: string
+        service_name:
+          description: サービス名
+          type: string
+        service_code:
+          description: サービスコード
+          type: string
+        floor_id:
+          description: フロアID
+          type: integer
+        floor_name:
+          description: フロア名
+          type: string
+        floor_code:
+          description: フロアコード
+          type: string
+        maker:
+          description: メーカーリスト
+          type: array
+          items:
+            $ref: '#/components/schemas/Maker'
+    Maker:
+      description: メーカー情報
+      type: object
+      properties:
+        maker_id:
+          description: メーカーID
+          type: integer
+        name:
+          description: メーカー名
+          type: string
+        ruby:
+          description: メーカー名（読み仮名）
+          type: string
+        list_url:
+          description: リストページURL（アフィリエイトID付き）
+          type: string
+    AuthorSearchRequest:
+      description: リクエスト
+      type: object
+      properties:
+        parameters:
+          type: object
+          description: リクエストパラメータ
+          properties:
+            api_id:
+              description: API ID
+              type: string
+            affiliate_id:
+              description: アフィリエイトID
+              type: string
+            output:
+              description: 出力形式
+              type: string
+            callback:
+              description: コールバック
+              type: string
+    AuthorSearchResponse:
+      type: object
+      properties:
+        request:
+          $ref: '#/components/schemas/AuthorSearchRequest'
+        result:
+          $ref: '#/components/schemas/AuthorSearchResult'
+    AuthorSearchResult:
+      description: 作者検索結果
+      type: object
+      properties:
+        status:
+          description: ステータスコード
+          type: string
+        result_count:
+          description: 取得件数
+          type: integer
+        total_count:
+          description: 全体件数
+          type: integer
+        first_position:
+          description: 検索開始位置
+          type: integer
+        site_name:
+          description: サイト名
+          type: string
+        site_code:
+          description: サイトコード
+          type: string
+        service_name:
+          description: サービス名
+          type: string
+        service_code:
+          description: サービスコード
+          type: string
+        floor_id:
+          description: フロアID
+          type: integer
+        floor_name:
+          description: フロア名
+          type: string
+        floor_code:
+          description: フロアコード
+          type: string
+        author:
+          description: 作者リスト
+          type: array
+          items:
+            $ref: '#/components/schemas/Author'
+    Author:
+      description: 作者情報
+      type: object
+      properties:
+        author_id:
+          description: 作者情報
+          type: integer
+        name:
+          description: 作者名
+          type: string
+        ruby:
+          description: 作者名（読み仮名）
+          type: string
+        author_name:
+          description: 作者別名
+          type: string
+        list_url:
+          description: リストページURL（アフィリエイトID付き）
+          type: string
+externalDocs:
+  description: 公式ドキュメント
+  url: 'https://affiliate.dmm.com/api/'

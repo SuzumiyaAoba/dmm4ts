@@ -1,0 +1,6 @@
+type: object
+properties:
+  request:
+    $ref: '../index.yml#/components/schemas/ActressSearchRequest'
+  result:
+    $ref: '../index.yml#/components/schemas/ActressSearchResult'

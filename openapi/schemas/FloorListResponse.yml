@@ -1,0 +1,7 @@
+description: フロア一覧レスポンス
+type: object
+properties:
+  request:
+    $ref: '../index.yml#/components/schemas/FloorListRequest'
+  result:
+    $ref: '../index.yml#/components/schemas/FloorListResult'

@@ -1,0 +1,51 @@
+get:
+  operationId: getSeriesSearch
+  parameters:
+    - name: api_id
+      in: query
+      required: true
+      description: API ID
+      schema:
+        type: string
+    - name: affiliate_id
+      in: query
+      required: true
+      description: アフィリエイトID
+      schema:
+        type: string
+    - name: floor_id
+      in: query
+      required: true
+      description: フロアID
+      schema:
+        type: integer
+    - name: initial
+      in: query
+      required: true
+      description: 頭文字（50音）
+      schema:
+        type: string
+    - name: hits
+      description: 取得件数
+      schema:
+        type: integer
+    - name: offset
+      description: 検索開始位置
+      schema:
+        type: integer
+    - name: output
+      description: 出力形式
+      schema:
+        type: string
+        enum: [json, xml]
+    - name: callback
+      description: コールバック
+      schema:
+        type: string
+  responses:
+    200:
+      description: シリーズ検索結果
+      content:
+        application/json:
+          schema:
+            $ref: '../index.yml#/components/schemas/SeriesSearchResponse'

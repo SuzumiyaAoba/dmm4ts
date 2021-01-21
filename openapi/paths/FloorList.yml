@@ -1,0 +1,33 @@
+get:
+  operationId: getFloorList
+  parameters:
+    - name: api_id
+      in: query
+      description: API ID
+      required: true
+      schema:
+        type: string
+    - name: affiliate_id
+      in: query
+      description: アフィリエイトID
+      required: true
+      schema:
+        type: string
+    - name: output
+      in: query
+      description: 出力形式
+      schema:
+        type: string
+        enum: [json, xml]
+    - name: callback
+      in: query
+      description: コールバック
+      schema:
+        type: string
+  responses:
+    200:
+      description: フロア一覧
+      content:
+        application/json:
+          schema:
+            $ref: '../index.yml#/components/schemas/FloorListResponse'

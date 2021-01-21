@@ -1,0 +1,69 @@
+description: リクエスト
+type: object
+properties:
+  parameters:
+    type: object
+    description: リクエストパラメータ
+    properties:
+      api_id:
+        description: API ID
+        type: string
+      affiliate_id:
+        description: アフィリエイトID
+        type: string
+      initial:
+        description: 頭文字（50音）
+        type: string
+      actress_id:
+        description: 女優ID
+        type: integer
+      keyword:
+        description: キーワード
+        type: string
+      gte_bust:
+        description: バスト下限
+        type: integer
+      lte_bust:
+        description: バスト上限
+        type: integer
+      gte_waist:
+        description: ウエスト下限
+        type: integer
+      lte_waist:
+        description: ウエスト上限
+        type: integer
+      gte_hip:
+        description: ヒップ下限
+        type: integer
+      lte_hip:
+        description: ヒップ上限
+        type: integer
+      gte_height:
+        description: 身長下限
+        type: integer
+      lte_height:
+        description: 身長上限
+        type: integer
+      gte_birthday:
+        description: 生年月日下限
+        type: string
+      lte_birthday:
+        description: 生年月日上限
+        type: string
+      hits:
+        description: 取得件数
+        type: integer
+      offset:
+        description: 検索開始位置
+        type: integer
+      sort:
+        description: ソート順
+        type: string
+        enum: [name, -name, bust, -bust, waist, -waist, hip, -hip, height, -height, birthday, -birthday, id, -id]
+      output:
+        description: 出力形式
+        type: string
+        enum: [json, xml]
+      callback:
+        description: コールバック
+        type: string

@@ -1,0 +1,6 @@
+type: object
+properties:
+  request:
+    $ref: './ItemListRequest.yml'
+  result:
+    $ref: './ItemListResult.yml'

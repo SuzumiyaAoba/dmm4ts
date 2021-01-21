@@ -1,0 +1,17 @@
+description: 女優情報検索結果
+type: object
+properties:
+  status:
+    description: ステータスコード
+    type: string
+  result_count:
+    description: 取得件数
+    type: integer
+  total_count:
+    description: 全体件数
+    type: integer
+  first_position:
+    description: 検索開始位置
+    type: integer
+  actress:
+    $ref: '../index.yml#/components/schemas/Actress'

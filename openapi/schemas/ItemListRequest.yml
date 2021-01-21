@@ -1,0 +1,62 @@
+description: リクエスト
+type: object
+properties:
+  parameters:
+    type: object
+    description: リクエストパラメータ
+    properties:
+      api_id:
+        description: API ID
+        type: string
+      affiliate_id:
+        description: アフィリエイトID
+        type: string
+      site:
+        description: サイト
+        type: string
+        enum: [DMM.com, FANZA]
+      service:
+        description: サービス
+        type: string
+      floor:
+        description: フロア
+        type: string
+      hits:
+        description: 取得件数
+        type: string
+      offset:
+        description: 検索開始位置
+        type: string
+      sort:
+        description: ソート順
+        type: string
+        enum: [rank, price, -price, date, review, match]
+      keyword:
+        description: キーワード
+        type: string
+      cid:
+        description: 商品ID
+        type: string
+      article:
+        description: 絞り込み項目
+        type: string
+        enum: [actress, author, genre, series, maker]
+      article_id:
+        description: 絞り込みID
+        type: integer
+      gte_date:
+        description: 発売日絞り込み
+        type: string
+      lte_date:
+        description: 発売日絞り込み
+        type: string
+      mono_stock:
+        description: 在庫絞り込み
+        type: string
+      output:
+        description: 出力形式
+        type: string
+        enum: [json, xml]
+      callback:
+        description: コールバック
+        type: string

@@ -1,0 +1,15 @@
+description: メーカー情報
+type: object
+properties:
+  maker_id:
+    description: メーカーID
+    type: integer
+  name:
+    description: メーカー名
+    type: string
+  ruby:
+    description: メーカー名（読み仮名）
+    type: string
+  list_url:
+    description: リストページURL（アフィリエイトID付き）
+    type: string

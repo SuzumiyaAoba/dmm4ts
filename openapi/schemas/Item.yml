@@ -1,0 +1,246 @@
+description: 商品情報
+type: object
+properties:
+  service_code:
+    description: サービスコード
+    type: string
+  service_name:
+    description: サービス名
+    type: string
+  floor_code:
+    description: フロアコード
+    type: string
+  floor_name:
+    description: フロア名
+    type: string
+  category_name:
+    description: カテゴリ名
+    type: string
+  content_id:
+    description: 商品ID
+    type: string
+  product_id:
+    description: 品番
+    type: string
+  title:
+    description: タイトル
+    type: string
+  volume:
+    description: 収録時間 or ページ数
+    type: string
+  number:
+    description: 巻数
+    type: integer
+  review:
+    description: レビュー
+    type: object
+    properties:
+      count:
+        description: レビュー数
+        type: integer
+      average:
+        description: レビュー平均点
+        type: string
+  URL:
+    description: 商品ページURL
+    type: string
+  affiliateURL:
+    description: アフィリエイトリンクURL
+    type: string
+  URLsp:
+    description: スマホ向け商品ページURL
+    type: string
+  affiliateURLSp:
+    description: スマホ向けアリフィエイトリンクURL
+    type: string
+  imageURL:
+    description: 画像URL
+    type: object
+    properties:
+      list:
+        description: リストページ用
+        type: string
+      small:
+        description: 末端用（小）
+        type: string
+      large:
+        description: 末端用（大）
+        type: string
+  tachiyomi:
+    description: 立ち読み
+    type: object
+    properties:
+      URL:
+        description: 立ち読みページURL
+        type: string
+      affiliateURL:
+        description: 立ち読みアフィリエイトリンクURL
+        type: string
+  sampleImageURL:
+    description: サンプル画像URL
+    type: object
+    properties:
+      sample_s:
+        description: サンプル（小）リスト
+        type: object
+        properties:
+          image:
+            description: サンプル画像（小）
+            type: array
+            items:
+              type: string
+  sampleMovieURL:
+    description: サンプル動画URL
+    type: object
+    properties:
+      size_476_306:
+        description: 476x306
+        type: string
+      size_560_360:
+        description: 560x360
+        type: string
+      size_644_414:
+        description: 644x414
+        type: string
+      size_720_480:
+        description: 720x480
+        type: string
+      pc_flag:
+        description: PC対応しているか
+        type: integer
+      sp_flag:
+        description: スマホ対応しているか
+        type: integer
+  prices:
+    description: 価格
+    type: object
+    properties:
+      price:
+        description: 金額
+        type: string
+      list_price:
+        description: 定価
+        type: string
+      deliveries:
+        description: 配信リスト
+        type: object
+        properties:
+          type:
+            description: 配信タイプ
+            type: string
+          price:
+            description: 配信価格
+            type: string
+  date:
+    description: 発売日、配信開始日、貸出開始日
+    type: string
+  iteminfo:
+    description: 商品詳細
+    type: object
+    properties:
+      genre:
+        description: ジャンル
+        type: object
+        properties:
+          name:
+            description: ジャンル名
+            type: string
+          id:
+            description: ジャンルID
+            type: integer
+      series:
+        description: シリーズ
+        type: object
+        properties:
+          name:
+            description: シリーズ名
+            type: string
+          id:
+            description: シリーズID
+            type: integer
+      maker:
+        description: メーカー
+        type: object
+        properties:
+          name:
+            description: メーカー名
+            type: string
+          id:
+            description: メーカーID
+            type: integer
+      actor:
+        description: 出演者（一般作品のみ）
+        type: object
+        properties:
+          name:
+            description: 主演者名
+            type: string
+          id:
+            description: 出演者ID
+            type: integer
+      actress:
+        description: 女優（アダルト作品のみ）
+        type: object
+        properties:
+          name:
+            description: 女優名
+            type: string
+          id:
+            description: 女優ID
+            type: integer
+      director:
+        description: 監督
+        type: object
+        properties:
+          name:
+            description: 監督名
+            type: string
+          id:
+            description: 監督ID
+            type: integer
+      author:
+        description: 作家、原作者、著者
+        type: object
+        properties:
+          name:
+            description: 作家、原作者、著者名
+            type: string
+          id:
+            description: 作家、原作者、著者ID
+            type: integer
+      label:
+        description: レーベル
+        type: object
+        properties:
+          name:
+            description: レーベル名
+            type: string
+          id:
+            description: レーベルID
+            type: integer
+  jancode:
+    description: JANコード
+    type: string
+  maker_product:
+    description: メーカー品番
+    type: string
+  isbn:
+    description: ISBN
+    type: string
+  stock:
+    description: 在庫状況
+    type: string
+  cdinfo:
+    description: CD情報
+    type: object
+    properties:
+      kind:
+        description: アルバム、シングル
+        type: string
+  bandaiinfo:
+    description: バンダイ情報
+    type: object
+    properties:
+      titlecode:
+        description: タイトルコード
+        type: string

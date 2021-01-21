@@ -1,0 +1,34 @@
+openapi: 3.0.0
+
+info:
+  title: DMM.com API ver3
+  description: DMM Webサービスが提供するWeb APIの非公式Open API
+  license:
+    name: MIT License
+    url: https://opensource.org/licenses/MIT
+  version: 3.0.0
+
+servers:
+  - url: https://api.dmm.com/affiliate/v3
+    description: API ver 3.0
+
+paths:
+  /ItemList:
+    $ref: './paths/ItemList.yml'
+  /FloorList:
+    $ref: './paths/FloorList.yml'
+  /ActressSearch:
+    $ref: './paths/ActressSearch.yml'
+  /GenreSearch:
+    $ref: './paths/GenreSearch.yml'
+  /MakerSearch:
+    $ref: './paths/MakerSearch.yml'
+  /AuthorSearch:
+    $ref: './paths/AuthorSearch.yml'
+components:
+  schemas:
+    $ref: './schemas/index.yml'
+
+externalDocs:
+  description: 公式ドキュメント
+  url: https://affiliate.dmm.com/api/

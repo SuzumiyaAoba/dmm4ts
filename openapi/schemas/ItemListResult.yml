@@ -1,0 +1,20 @@
+description: 商品情報リスト検索結果
+type: object
+properties:
+  status:
+    description: ステータスコード
+    type: integer
+  result_count:
+    description: 取得件数
+    type: integer
+  total_count:
+    description: 全体件数
+    type: integer
+  first_position:
+    description: 検索開始位置
+    type: integer
+  items:
+    description: 商品情報
+    type: array
+    items:
+      $ref: './Item.yml'

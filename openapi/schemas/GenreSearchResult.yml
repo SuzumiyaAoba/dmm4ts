@@ -1,0 +1,35 @@
+description: ジャンル検索結果
+type: object
+properties:
+  status:
+    description: ステータスコード
+    type: string
+  result_count:
+    description: 取得件数
+    type: integer
+  total_count:
+    description: 全体件数
+    type: integer
+  first_position:
+    description: 検索開始位置
+    type: integer
+  site_name:
+    description: サイト名
+    type: string
+  site_code:
+    description: サイトコード
+    type: string
+  service_name:
+    description: サービス名
+    type: string
+  floor_id:
+    description: フロアID
+    type: integer
+  floor_name:
+    description: フロア名
+    type: string
+  floor_code:
+    description: フロアコード
+    type: string
+  genre:
+    $ref: '../index.yml#/components/schemas/Genre'

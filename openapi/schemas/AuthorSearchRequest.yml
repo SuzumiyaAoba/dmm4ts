@@ -1,0 +1,19 @@
+description: リクエスト
+type: object
+properties:
+  parameters:
+    type: object
+    description: リクエストパラメータ
+    properties:
+      api_id:
+        description: API ID
+        type: string
+      affiliate_id:
+        description: アフィリエイトID
+        type: string
+      output:
+        description: 出力形式
+        type: string
+      callback:
+        description: コールバック
+        type: string

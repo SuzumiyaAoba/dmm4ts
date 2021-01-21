@@ -1,0 +1,59 @@
+# 商品検索
+ItemListRequest:
+  $ref: './ItemListRequest.yml'
+ItemListResponse:
+  $ref: './ItemListResponse.yml'
+ItemListResult:
+  $ref: './ItemListResult.yml'
+Item:
+  $ref: './Item.yml'
+
+# フロア検索
+FloorListRequest:
+  $ref: './FloorListRequest.yml'
+FloorListResponse:
+  $ref: './FloorListResponse.yml'
+FloorListResult:
+  $ref: './FloorListResult.yml'
+Site:
+  $ref: './Site.yml'
+
+# 女優検索
+ActressSearchRequest:
+  $ref: './ActressSearchRequest.yml'
+ActressSearchResponse:
+  $ref: './ActressSearchResponse.yml'
+ActressSearchResult:
+  $ref: './ActressSearchResult.yml'
+Actress:
+  $ref: './Actress.yml'
+
+# ジャンル検索
+GenreSearchRequest:
+  $ref: './GenreSearchRequest.yml'
+GenreSearchResponse:
+  $ref: './GenreSearchResponse.yml'
+GenreSearchResult:
+  $ref: './GenreSearchResult.yml'
+Genre:
+  $ref: './Genre.yml'
+
+# メーカー検索
+MakerSearchRequest:
+  $ref: './MakerSearchRequest.yml'
+MakerSearchResponse:
+  $ref: './MakerSearchResponse.yml'
+MakerSearchResult:
+  $ref: './MakerSearchResult.yml'
+Maker:
+  $ref: './Maker.yml'
+
+# 作者検索
+AuthorSearchRequest:
+  $ref: './AuthorSearchRequest.yml'
+AuthorSearchResponse:
+  $ref: './AuthorSearchResponse.yml'
+AuthorSearchResult:
+  $ref: './AuthorSearchResult.yml'
+Author:
+  $ref: './Author.yml'

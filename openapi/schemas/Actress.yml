@@ -1,0 +1,65 @@
+description: 女優情報
+type: object
+properties:
+  id:
+    description: 女優ID
+    type: integer
+  name:
+    description: 女優名
+    type: string
+  ruby:
+    description: 女優名（読み仮名）
+    type: string
+  bust:
+    description: バスト
+    type: integer
+  cup:
+    description: カップ数
+    type: string
+  waist:
+    description: ウェスト
+    type: integer
+  hip:
+    description: ヒップ
+    type: integer
+  height:
+    description: 身長
+    type: integer
+  birthday:
+    description: 生年月日
+    type: string
+  blood_type:
+    description: 血液型
+    type: string
+  hobby:
+    description: 趣味
+    type: string
+  prefectures:
+    description: 出身地
+    type: string
+  imageURL:
+    description: 画像URL
+    type: object
+    properties:
+      small:
+        description: 画像（小）
+        type: string
+      large:
+        description: 画像（大）
+        type: string
+  listURL:
+    description: リストページURL（アフィリエイトID付き）
+    type: object
+    properties:
+      digital:
+        description: 動画
+        type: string
+      monthly_premium:
+        description: 月額動画 見放題chプレミアム
+        type: string
+      mono:
+        description: DVD通販
+        type: string
+      rental:
+        description: DVDレンタル
+        type: string

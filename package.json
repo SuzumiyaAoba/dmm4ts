@@ -1,0 +1,32 @@
+{
+  "name": "@SuzumiyaAoba/dmm4ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SuzumiyaAoba/dmm4ts"
+  },
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepare": "npm run clean && npm run bundle-openapi && npm run generate && npm run build",
+    "build": "tsc",
+    "bundle-openapi": "npx swagger-cli bundle -o ./spec.yml -t yaml openapi/index.yml",
+    "generate": "npx openapi -i spec.yml -o src --useOptions --useUnionTypes",
+    "clean": "rm -rf spec.yml src"
+  },
+  "keywords": [
+    "DMM"
+  ],
+  "author": "SuzumiyaAoba",
+  "license": "MIT",
+  "devDependencies": {
+    "openapi-typescript-codegen": "^0.7.2",
+    "typescript": "^4.1.3"
+  },
+  "dependencies": {
+    "@apidevtools/swagger-cli": "^4.0.4"
+  }
+}

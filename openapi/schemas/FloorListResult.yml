@@ -1,0 +1,8 @@
+description: フロア情報リスト検索結果
+type: object
+properties:
+  site:
+    description: サイト情報リスト
+    type: array
+    items:
+      $ref: '../index.yml#/components/schemas/Site'

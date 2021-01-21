@@ -1,0 +1,54 @@
+get:
+  operationId: getMakerSearch
+  parameters:
+    - name: api_id
+      in: query
+      required: true
+      description: API ID
+      schema:
+        type: string
+    - name: affiliate_id
+      in: query
+      required: true
+      description: アフィリエイトID
+      schema:
+        type: string
+    - name: floor_id
+      in: query
+      required: true
+      description: フロアID
+      schema:
+        type: integer
+    - name: initial
+      in: query
+      description: 頭文字（50音）
+      schema:
+        type: string
+    - name: hits
+      in: query
+      description: 取得件数
+      schema:
+        type: integer
+    - name: offset
+      in: query
+      description: 検索開始位置
+      schema:
+        type: integer
+    - name: output
+      in: query
+      description: 出力形式
+      schema:
+        type: string
+        enum: [json, xml]
+    - name: callback
+      in: query
+      description: コールバック
+      schema:
+        type: string
+  responses:
+    200:
+      description: メーカー検索結果
+      content:
+        application/json:
+          schema:
+            $ref: '../index.yml#/components/schemas/MakerSearchResponse'

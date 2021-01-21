@@ -1,0 +1,32 @@
+description: リクエスト
+type: object
+properties:
+  parameters:
+    type: object
+    description: リクエストパラメータ
+    properties:
+      api_id:
+        description: API ID
+        type: string
+      affiliate_id:
+        description: アフィリエイトID
+        type: string
+      floor_id:
+        description: フロアID
+        type: integer
+      initial:
+        description: 頭文字（50音）
+        type: string
+      hits:
+        description: 取得件数
+        type: integer
+      offset:
+        description: 検索開始位置
+        type: integer
+      output:
+        description: 出力形式
+        type: string
+        enum: [json, xml]
+      callback:
+        description: コールバック
+        type: string

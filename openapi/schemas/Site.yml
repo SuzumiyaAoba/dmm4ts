@@ -1,0 +1,36 @@
+description: サイト情報
+type: object
+properties:
+  name:
+    description: サイト名
+    type: string
+  code:
+    description: サイトコード
+    type: string
+  service:
+    description: サービス情報
+    type: object
+    properties:
+      name:
+        description: サービス名
+        type: string
+      code:
+        description: サービスコード
+        type: string
+      floor:
+        description: フロア情報リスト
+        type: array
+        items:
+          description: フロア情報
+          type: object
+          properties:
+            id:
+              description: フロアID
+              type: integer
+            name:
+              description: フロア名
+              type: string
+            code:
+              description: フロアコード
+              type: string
+

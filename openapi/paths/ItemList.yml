@@ -1,0 +1,103 @@
+get:
+  operationId: getItemList
+  parameters:
+    - name: api_id
+      in: query
+      description: API ID
+      required: true
+      schema:
+        type: string
+    - name: affiliate_id
+      in: query
+      description: アフィリエイトID
+      required: true
+      schema:
+        type: string
+    - name: site
+      in: query
+      description: サイト
+      required: true
+      schema:
+        type: string
+        enum: [DMM.com, FANZA]
+    - name: service
+      in: query
+      description: サービス
+      schema:
+        type: string
+    - name: floor
+      in: query
+      description: フロア
+      schema:
+        type: string
+    - name: hits
+      in: query
+      description: 取得件数
+      schema:
+        type: integer
+    - name: offset
+      in: query
+      description: 検索開始位置
+      schema:
+        type: integer
+    - name: sort
+      in: query
+      description: ソート順
+      schema:
+        type: string
+        enum: [rank, price, -price, date, review, match]
+    - name: keyword
+      in: query
+      description: キーワード
+      schema:
+        type: string
+    - name: cid
+      in: query
+      description: 商品ID
+      schema:
+        type: string
+    - name: article
+      in: query
+      description: 絞りこみ項目
+      schema:
+        type: string
+        enum: [actress, author, genre, series, maker]
+    - name: article_id
+      in: query
+      description: 絞り込みID
+      schema:
+        type: integer
+    - name: gte_date
+      in: query
+      description: 発売日絞り込み
+      schema:
+        type: string
+    - name: lte_date
+      in: query
+      description: 発売日絞り込み
+      schema:
+        type: string
+    - name: mono_stock
+      in: query
+      description: 在庫絞り込み
+      schema:
+        type: string
+        enum: [stock, reserve, mono, dmp]
+    - name: output
+      in: query
+      description: 出力形式
+      schema:
+        type: string
+        enum: [json, xml]
+    - name: callback
+      in: query
+      description: コールバック
+      schema:
+        type: string
+  responses:
+    200:
+      description: 商品の情報リストを取得する
+      content:
+        application/json:
+          schema:
+            $ref: '../index.yml#/components/schemas/ItemListResponse'
