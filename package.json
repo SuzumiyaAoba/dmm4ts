@@ -17,7 +17,7 @@
     "prepare": "npm run clean && npm run bundle-openapi && npm run generate && npm run build",
     "build": "tsc",
     "bundle-openapi": "npx swagger-cli bundle -o ./spec.yml -t yaml openapi/index.yml",
-    "generate": "npx openapi -i spec.yml -o src --useOptions --useUnionTypes",
+    "generate": "npx openapi -i spec.yml -o src --useOptions --useUnionTypes --client node",
     "clean": "rm -rf spec.yml src"
   },
   "keywords": [
