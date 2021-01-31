@@ -5,7 +5,7 @@
     "url": "https://github.com/SuzumiyaAoba/dmm4ts.git"
   },
   "publishConfig": {
-    "registry":"https://npm.pkg.github.com"
+    "registry": "https://npm.pkg.github.com"
   },
   "version": "1.0.1",
   "description": "",
